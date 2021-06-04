@@ -60,4 +60,18 @@ class AuthController extends Controller
             return $this->failed('用户注册失败');
         }
     }
+
+    /**
+     * 退出登录
+     */
+    public function logout() {
+
+    }
+
+    /**
+     * 更改密码
+     */
+    public function changePassword() {
+
+    }
 }
