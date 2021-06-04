@@ -58,9 +58,13 @@ Route::middleware(['auth:api', 'cors'])->group(function (){
     Route::post('message', [MessageController::class, 'save']);
     Route::delete('message', [MessageController::class, 'delete']);
 
-    Route::get('message/sender/list', [MessageTemplateController::class, 'list']);
-    Route::post('message/sender', [MessageTemplateController::class, 'save']);
-    Route::delete('message/sender', [MessageTemplateController::class, 'delete']);
+    Route::get('message/sender/list', [MessageSenderController::class, 'list']);
+    Route::post('message/sender', [MessageSenderController::class, 'save']);
+    Route::delete('message/sender', [MessageSenderController::class, 'delete']);
+
+    Route::get('message/template/list', [MessageTemplateController::class, 'list']);
+    Route::post('message/template', [MessageTemplateController::class, 'save']);
+    Route::delete('message/template', [MessageTemplateController::class, 'delete']);
 
     // system
     Route::get('department/list', [DepartmentController::class, 'list']);
