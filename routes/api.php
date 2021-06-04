@@ -31,13 +31,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['cors'])->group(function (){
+Route::post('account/login', [AuthController::class, 'login']);
+Route::post('account/register', [AuthController::class, 'register']);
+
+Route::middleware(['auth:api','cors'])->group(function (){
     // authenticate
-    Route::post('login', [AuthController::class, 'login']);
-    Route::post('register', [AuthController::class, 'register']);
-    Route::get('info', [AuthController::class, 'info']);
-    Route::get('logout', [AuthController::class, 'logout']);
-    Route::post('changePassword', [AuthController::class, 'changePassword']);
+    Route::get('account/info', [AuthController::class, 'info']);
+    Route::get('account/logout', [AuthController::class, 'logout']);
+    Route::post('account/changePassword', [AuthController::class, 'changePassword']);
     /** cms */
     // article
     Route::get('article/list', [ArticleController::class, 'list']);

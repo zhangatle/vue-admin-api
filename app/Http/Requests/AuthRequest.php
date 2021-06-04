@@ -2,35 +2,27 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
-
-class AuthRequest extends FormRequest
+/**
+ * @property string account
+ * @property string last_token
+ */
+class AuthRequest extends Request
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return false;
-    }
-
     /**
      * Get the validation rules that apply to the request.
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         switch ($this->method()) {
             case 'POST':
             {
-                $return['password'] = ['bail', 'required', 'max:16', 'min:6'];
+                $return['password'] = ['bail', 'required', 'max:16', 'min:5'];
                 if (strpos($this->route()->uri, 'login')) {
-                    $return['phone'] = ['required', 'numeric', 'regex:/^1[3456789][0-9]{9}$/'];
+                    $return['account'] = ['required', 'string'];
                 } else {
-                    $return['phone'] = ['required', 'numeric', 'regex:/^1[3456789][0-9]{9}$/', 'unique:Users,phone'];
+                    $return['account'] = ['required', 'string', 'unique:users,account'];
                 }
                 return $return;
             }
@@ -41,16 +33,14 @@ class AuthRequest extends FormRequest
         }
     }
 
-    public function messages()
+    public function messages(): array
     {
         return [
-            'phone.required' => '手机号不能为空',
-            'phone.numeric' => '手机号错误',
-            'phone.regex' => '手机号错误',
-            'phone.unique' => '手机号已被注册',
+            'account.required' => '用户名不能为空',
+            'account.unique' => '用户名已被注册',
             'password.required' => '密码不能为空',
             'password.max' => '密码长度不能超过16个字符',
-            'password.min' => '密码长度不能小于6个字符'
+            'password.min' => '密码长度不能小于5个字符'
         ];
     }
 }
