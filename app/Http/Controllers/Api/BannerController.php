@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class BannerController extends Controller
 {
-    //
+    public function list() {
+        $res = '{"code":20000,"msg":"成功","data":[{"id":1,"createTime":"2019-03-09 16:29:03","createBy":1,"modifyTime":null,"modifyBy":null,"url":"javascript:","title":"不打开链接","type":"index","idFile":1},{"id":2,"createTime":"2019-03-09 16:29:03","createBy":1,"modifyTime":null,"modifyBy":null,"url":"/contact","title":"打打开站内链接","type":"index","idFile":2},{"id":3,"createTime":"2019-03-09 16:29:03","createBy":1,"modifyTime":null,"modifyBy":null,"url":"http://www.baidu.com","title":"打开外部链接","type":"index","idFile":6},{"id":4,"createTime":"2019-03-09 16:29:03","createBy":1,"modifyTime":null,"modifyBy":null,"url":"javascript:","title":"不打开链接","type":"product","idFile":1},{"id":5,"createTime":"2019-03-09 16:29:03","createBy":1,"modifyTime":null,"modifyBy":null,"url":"/contact","title":"打打开站内链接","type":"product","idFile":2},{"id":6,"createTime":"2019-03-09 16:29:03","createBy":1,"modifyTime":null,"modifyBy":null,"url":"http://www.baidu.com","title":"打开外部链接","type":"product","idFile":6},{"id":7,"createTime":"2019-03-09 16:29:03","createBy":1,"modifyTime":null,"modifyBy":null,"url":"javascript:","title":"不打开链接","type":"solution","idFile":1},{"id":8,"createTime":"2019-03-09 16:29:03","createBy":1,"modifyTime":null,"modifyBy":null,"url":"/contact","title":"打打开站内链接","type":"solution","idFile":2},{"id":9,"createTime":"2019-03-09 16:29:03","createBy":1,"modifyTime":null,"modifyBy":null,"url":"http://www.baidu.com","title":"打开外部链接","type":"solution","idFile":6},{"id":10,"createTime":"2019-03-09 16:29:03","createBy":1,"modifyTime":null,"modifyBy":null,"url":"javascript:","title":"不打开链接","type":"case","idFile":1},{"id":11,"createTime":"2019-03-09 16:29:03","createBy":1,"modifyTime":null,"modifyBy":null,"url":"/contact","title":"打打开站内链接","type":"case","idFile":2},{"id":12,"createTime":"2019-03-09 16:29:03","createBy":1,"modifyTime":null,"modifyBy":null,"url":"http://www.baidu.com","title":"打开外部链接","type":"case","idFile":6},{"id":14,"createTime":"2019-03-09 16:29:03","createBy":1,"modifyTime":null,"modifyBy":null,"url":"javascript:","title":"不打开链接","type":"news","idFile":1},{"id":15,"createTime":"2019-03-09 16:29:03","createBy":1,"modifyTime":null,"modifyBy":null,"url":"/contact","title":"打打开站内链接","type":"news","idFile":2},{"id":16,"createTime":"2019-03-09 16:29:03","createBy":1,"modifyTime":null,"modifyBy":null,"url":"http://www.baidu.com","title":"打开外部链接","type":"news","idFile":6}],"success":true}';
+        return $this->success(json_decode($res));
+    }
 }
